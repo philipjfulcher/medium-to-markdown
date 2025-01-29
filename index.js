@@ -1,18 +1,15 @@
 'use strict';
 
-const convertFromUrl = require('./lib/convertFromUrl') 
+// const convertUrls = require('./lib/convertFromMarkdown')
+const convertUrls = require('./lib/convertFromUrl')
 
 module.exports = {
-  convertFromUrl
+  convertUrls
 }
 
 // if run as cmd utility
 if (typeof require !== 'undefined' && require.main === module) {
-  if(process.argv.length < 3){
-    console.log('What url to convert?')
-    return
-  }
-  convertFromUrl(process.argv[2]).then(function (markdown) {
-    console.log(markdown); //=> Markdown content of medium post
+  convertUrls().then(function (markdown) {
+    console.log('all done'); //=> Markdown content of medium post
   });
 }
